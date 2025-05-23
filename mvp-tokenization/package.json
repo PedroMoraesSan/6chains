@@ -1,0 +1,18 @@
+{
+  "name": "mvp-tokenization",
+  "version": "1.0.0",
+  "description": "MVP for tokenization of digital assets with transactions between two local entities",
+  "scripts": {
+    "install-all": "npm install && npm run install-seller && npm run install-buyer",
+    "install-seller": "cd seller/server && npm install && cd ../client && npm install",
+    "install-buyer": "cd buyer/server && npm install && cd ../client && npm install",
+    "start-seller-server": "cd seller/server && node index.js",
+    "start-buyer-server": "cd buyer/server && node index.js",
+    "start-seller-client": "cd seller/client && npm run dev",
+    "start-buyer-client": "cd buyer/client && npm run dev",
+    "start-all": "concurrently \"npm run start-seller-server\" \"npm run start-buyer-server\" \"npm run start-seller-client\" \"npm run start-buyer-client\""
+  },
+  "dependencies": {
+    "concurrently": "^8.2.0"
+  }
+}

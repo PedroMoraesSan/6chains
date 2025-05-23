@@ -1,0 +1,141 @@
+API FLOW CHART - BLOCKCHAIN FINANCIAL APPLICATION
+=================================================
+
+1. CLIENT REQUEST FLOW
+----------------------
+
+  Client Request
+       |
+       v
+  +----------+     +--------------+     +----------------+
+  |  Routes  |---->| Handler Func |---->| Business Logic |
+  +----------+     +--------------+     +----------------+
+       ^                                       |
+       |                                       v
+  +----------+                          +--------------+
+  | Response |<-------------------------| Data Storage |
+  +----------+                          +--------------+
+
+
+2. SPECIFIC API ENDPOINTS
+------------------------
+
+A. GET /saldo
+--------------
+  Request
+    |
+    v
+  handler.clj (/saldo route)
+    |
+    v
+  db.clj (saldo function)
+    |
+    v
+  Calculate balance from transactions
+    |
+    v
+  Return JSON response
+
+B. POST /transacoes
+------------------
+  Request with transaction data
+    |
+    v
+  handler.clj (/transacoes route)
+    |
+    v
+  transacoes.clj (valida? function)
+    |
+    v
+  [If valid] db.clj (registrar function)
+    |
+    v
+  Return JSON response with transaction ID
+
+C. POST /blockchain/transacao
+----------------------------
+  Request with transaction data
+    |
+    v
+  handler.clj (/blockchain/transacao route)
+    |
+    v
+  blockchain.clj (adicionar-bloco function)
+    |
+    +----------------+
+    |                |
+    v                v
+  Find nonce      Create block
+    |                |
+    v                v
+  Validate hash   Add to blockchain
+    |                |
+    +----------------+
+    |
+    v
+  Return JSON response
+
+D. GET /blockchain
+-----------------
+  Request
+    |
+    v
+  handler.clj (/blockchain route)
+    |
+    v
+  blockchain.clj (obter-blockchain function)
+    |
+    v
+  Return JSON with entire blockchain
+
+
+3. BLOCKCHAIN MINING PROCESS
+---------------------------
+
+  New transaction data
+    |
+    v
+  +-------------------+
+  | Create block with |
+  | transaction data  |
+  +-------------------+
+    |
+    v
+  +-------------------+
+  | Calculate hash    |
+  | with initial nonce|
+  +-------------------+
+    |
+    v
+  +-------------------+     No     +-------------------+
+  | Does hash start   |----------->| Increment nonce   |
+  | with "0000"?      |            | and try again     |
+  +-------------------+            +-------------------+
+    | Yes                               |
+    |                                   |
+    +-----------------------------------+
+    |
+    v
+  +-------------------+
+  | Add block to      |
+  | blockchain        |
+  +-------------------+
+    |
+    v
+  Block added successfully
+
+
+4. DATA FLOW BETWEEN COMPONENTS
+------------------------------
+
+  +-------------+     +-------------+     +-------------+
+  |   handler   |<--->| transacoes  |<--->|     db      |
+  |    (API)    |     | (validation)|     | (storage)   |
+  +-------------+     +-------------+     +-------------+
+        ^                                       ^
+        |                                       |
+        v                                       v
+  +-------------+                         +-------------+
+  |    JSON     |                         | blockchain  |
+  | serializer  |                         |  (ledger)   |
+  +-------------+                         +-------------+

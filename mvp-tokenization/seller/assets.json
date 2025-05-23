@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1747626581082",
+    "name": "Rare Digital Monkey",
+    "description": "This Monkey Hits Hard Asf. ",
+    "price": 50,
+    "supply": 3,
+    "createdAt": "2025-05-19T03:49:41.082Z"
+  },
+  {
+    "id": "1747626766669",
+    "name": "Rare Digital Art",
+    "description": "This Digital Art Hits Hard",
+    "price": 500,
+    "supply": 100,
+    "createdAt": "2025-05-19T03:52:46.669Z"
+  },
+  {
+    "id": "1747627375782",
+    "name": "House Music On GTA",
+    "description": "This Music Hits Hard Asf.",
+    "price": 2000,
+    "supply": 200,
+    "createdAt": "2025-05-19T04:02:55.782Z"
+  },
+  {
+    "id": "1747765099574",
+    "name": "New Asset",
+    "description": "Descrição do Asset",
+    "price": 30404,
+    "supply": 300,
+    "createdAt": "2025-05-20T18:18:19.574Z"
+  }
+]

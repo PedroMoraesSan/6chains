@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1684456789",
+    "name": "Espada Flamejante",
+    "description": "Espada lendária com fogo perpétuo.",
+    "price": 50,
+    "supply": 1,
+    "createdAt": "2025-05-19T00:00:00Z"
+  },
+  {
+    "id": "1684456790",
+    "name": "Amuleto de Proteção",
+    "description": "Protege o portador contra magias negativas.",
+    "price": 25,
+    "supply": 5,
+    "createdAt": "2025-05-19T00:10:00Z"
+  }
+]
